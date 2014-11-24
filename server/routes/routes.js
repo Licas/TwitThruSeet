@@ -7,7 +7,8 @@ var utf8 = require('utf8');
 var fs = require('fs');
 
 module.exports = function (app, passport) {
-    // =====================================
+   	
+	// =====================================
     // HOME PAGE SPA Start page ========
     // =====================================
     app.get('/', index);
