@@ -1,15 +1,14 @@
+var express = require('express');
+var router = express.Router();
 
-module.exports = function (app) {
-	app.post('/multapp',function(req,res){
-		console.log("Received post request. "+(req.body));
-		
-		res.send(JSON.stringify(req.body));
-    });
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json();
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+	
+router.post('/create',urlencodedParser,function(req,res){
+        
+    console.log("Post request:"+req.body.id);
+});
 
-    app.post('/',function(req,res){
-		console.log("Received post request. ");
-		
-		res.send("Hello post");
-    });
-
-}
+module.exports = router;
