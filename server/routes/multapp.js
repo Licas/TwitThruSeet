@@ -1,14 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json();
-// create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var bodyParser = require('body-parser');
 	
-router.post('/create',urlencodedParser,function(req,res){
+router.post('/create',function(req,res){
         
-    console.log("Post request:"+req.body.id);
+     console.log("A post request " + JSON.stringify(req.body));
+    res.end("Received: " + JSON.stringify(req.body));
+    //res.sendStatus(200);
 });
 
 module.exports = router;
